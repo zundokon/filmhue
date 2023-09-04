@@ -34,15 +34,6 @@
 - has_many :views
 
 
-## theaters テーブル
-| Column             | Type       | Options                        |
-| ------------------ | ---------- | ------------------------------ |
-| name               | string     | null: false                    |
-| address            | string     | null: false                    |
-| latitude           | float      | null: false                    | <!--緯度>
-| longitude          | float      | null: false                    | <!--経度>
-
-
 ## favorites テーブル
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
