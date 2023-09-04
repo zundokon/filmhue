@@ -25,7 +25,7 @@
 | color_code_id      | integer    |                                |
 | user               | references | null: false, foreign_key: true |
 | location           | string     |                                |
-| date               | string     |                                |
+| date               | date       |                                |
 
 ### Association
 
