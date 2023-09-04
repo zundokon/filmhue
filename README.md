@@ -1,24 +1,67 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
+| nickname           | string | null: false               |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :posts
+- has_many :favorites
+- has_many :views
 
-* Configuration
 
-* Database creation
+## posts テーブル
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| title              | string     | null: false                    |
+| review             | text       | null: false                    |
+| spoiler            | boolean    | null: false                    | <!--ネタバレ>
+| color              | string     |                                | <!--モデルで条件分岐>
+| color_code_id      | integer    |                                |
+| user               | references | null: false, foreign_key: true |
+| location           | string     |                                |
+| date               | string     |                                |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :user
+- has_many :favorites
+- has_many :views
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## theaters テーブル
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| name               | string     | null: false                    |
+| address            | string     | null: false                    |
+| latitude           | float      | null: false                    | <!--緯度>
+| longitude          | float      | null: false                    | <!--経度>
 
-* ...
+
+## favorites テーブル
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| user               | references | null: false, foreign_key: true |
+| post               | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :post
+
+
+## views テーブル
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| user               | references | null: false, foreign_key: true |
+| post               | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :post
