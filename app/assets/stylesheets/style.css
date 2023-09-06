@@ -77,6 +77,8 @@ a {
   color: #87CEFA;
   text-decoration: none;
   user-select: none;
+  border: 1px #87CEFA solid;
+  border-radius: 3px;
 }
 .nav__logout:hover{
   opacity: 0.5;
